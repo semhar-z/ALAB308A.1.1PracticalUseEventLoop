@@ -103,4 +103,17 @@ function isPrime(num) {
 
 function addPrimeNumToHTMLEl(n){
 
+    const isPrimeText = document.getElementById('textPrimeHolder'); // Cache the HTML element
+    const ul = document.createElement('ul'); // Create a list element
+
+    for (let i = 2; i <= n; i++) {
+        if (isPrime(i)) {
+            const li = document.createElement('li'); // Create a list item for each prime
+            li.textContent = i; // Set the text to the prime number
+            ul.appendChild(li); // Add the list item to the list
+        }
+    }
+
+     isPrimeText.appendChild(ul); // Add the list to the cached div
 }
+
