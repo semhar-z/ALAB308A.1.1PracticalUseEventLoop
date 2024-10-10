@@ -82,3 +82,25 @@ function flattenArrayTrampoline(array2) {
 
 let flattenedArray2 = flattenArrayTrampoline(nestedArray);
 console.log(flattenedArray2);
+
+
+// Part 3: Deferred Execution
+
+// Create a simple HTML element to hold text. Cache this HTML element into a JavaScript variable.
+// Write a function that takes a parameter n and adds a list of all prime numbers between one and n to your HTML element.
+// Once complete, use the alert() method to alert the user that the calculation is finished.
+
+// Function to check if a number is prime
+function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function addPrimeNumToHTMLEl(n){
+
+}
