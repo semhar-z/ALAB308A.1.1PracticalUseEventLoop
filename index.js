@@ -6,20 +6,20 @@
 // Surround the initial function call in a try/catch block.
 // Within the catch, log the error and the value of the counter variable.
 
-// let counter = 2;
-// function increment(){
-//      counter++;
-//        increment();  
-// }
+let counter = 2;
+function increment(){
+     counter++;
+       increment();  
+}
 
-// try {
-//     increment();
-//     console.log(counter);
-// } catch (error) {
-//     // Catch the error (stack overflow) and log the error and the counter value
-//     console.error("Error occurred:", error);
-//     console.log("Counter value before the error:", counter);
-// }
+try {
+    increment();
+    console.log(counter);
+} catch (error) {
+    // Catch the error (stack overflow) and log the error and the counter value
+    console.error("Error occurred:", error);
+    console.log("Counter value before the error:", counter);
+}
 
 
 // Part 2: Trampolines
@@ -103,7 +103,7 @@ function isPrime(num) {
 
 function addPrimeNumToHTMLEl(n){
 
-    const isPrimeText = document.getElementById('textPrimeHolder'); // Cache the HTML element
+    const isPrimeText = document.getElementById('textPrimeHolder1'); // Cache the HTML element
     const ul = document.createElement('ul'); // Create a list element
 
     for (let i = 2; i <= n; i++) {
@@ -115,5 +115,42 @@ function addPrimeNumToHTMLEl(n){
     }
 
      isPrimeText.appendChild(ul); // Add the list to the cached div
+
+      // Alert the user when the calculation is complete
+    alert('Prime number calculation is finished!');
+
+    
 }
 
+addPrimeNumToHTMLEl(15); 
+
+
+//  modify your function such that each number has an opportunity to render after it is calculated, 
+//  and the alert only appears once all numbers have been rendered
+
+
+function addPrimeNumToHTMLElWithSetTime(n, current = 2){
+
+    const isPrimeText2 = document.getElementById('textPrimeHolder2'); // Cache the HTML element
+    // const ul = document.createElement('ul'); // Create a list element
+
+    if (current > n) {
+        alert('Prime number listing is finished!');
+        return;
+    }
+
+    // Check if current is prime and print it
+    if (isPrime(current)) {
+        const li = document.createElement('li');
+        li.textContent = current;
+        isPrimeText2.appendChild(li);
+    }
+
+    // Use setTimeout to defer execution for the next number
+    setTimeout(() => {
+        addPrimeNumToHTMLElWithSetTime(n, current + 1); // Call recursively with the next number
+    }, 0);
+
+  }
+
+addPrimeNumToHTMLElWithSetTime(10000);
