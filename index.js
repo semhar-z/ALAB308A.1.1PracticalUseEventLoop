@@ -139,7 +139,7 @@ function addPrimeNumToHTMLElWithSetTime(n, current = 2){
         return;
     }
 
-    // Check if current is prime and print it
+    // Check if current is prime and append it to the parent node it
     if (isPrime(current)) {
         const li = document.createElement('li');
         li.textContent = current;
@@ -148,7 +148,7 @@ function addPrimeNumToHTMLElWithSetTime(n, current = 2){
 
     // Use setTimeout to defer execution for the next number
     setTimeout(() => {
-        addPrimeNumToHTMLElWithSetTime(n, current + 1); // Call recursively with the next number
+        addPrimeNumToHTMLElWithSetTime(n, current + 1); // Call for the next number
     }, 0);
 
   }
